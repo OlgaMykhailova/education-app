@@ -3,6 +3,7 @@ import {  lazy } from 'react';
 
 const CoursesPage = lazy(() => import('../pages/CoursesPage/CoursesPage'));
 const CoursePreviewPage = lazy(() => import('../pages/CoursePreviewPage/CoursePreviewPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'))
 
 export const App = () => {
   return (
@@ -10,6 +11,7 @@ export const App = () => {
   <Routes>
     <Route path='/' element={<CoursesPage />} />
     <Route path='course-details' element={<CoursePreviewPage />}/>
+    <Route path="*" element={<NotFoundPage />} />
   </Routes>
   </>
   );

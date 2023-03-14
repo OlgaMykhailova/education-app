@@ -1,8 +1,8 @@
-export const CoursesList = ({ courses }) => {
+export const CoursesList = ({ courses, page }) => {
   return (
     <ul>
       {courses
-        .slice(10, 20)
+        .slice((page - 1)*10 , page*10)
         .map(
           ({
             id,
@@ -18,13 +18,13 @@ export const CoursesList = ({ courses }) => {
               <img
                 src={`${previewImageLink}/cover.webp`}
                 alt={title}
-                width="320"
+                height="240"
               />
               <p>{description}</p>
               <p>{lessonsCount} lessons</p>
               <p>Skills:</p>
               <ul>
-                {meta.skills.map((skill, idx) => (
+                {meta.skills?.map((skill, idx) => (
                   <li key={idx}>{skill}</li>
                 ))}
               </ul>
