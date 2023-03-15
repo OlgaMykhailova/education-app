@@ -2,13 +2,16 @@ import { CoursesList } from 'components/CoursesList/CoursesList';
 import { PaginationNav } from 'components/PaginationNav/PaginationNav';
 import { useState, useEffect } from 'react';
 import { fetchCourses } from 'services/api';
+import { Spinner } from 'components/Spinner/Spinner.styled';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const loadCourses = async () => {
+      setIsLoading(true);
       try {
         const responseData = await fetchCourses();
         if (responseData.length === 0) {
@@ -21,6 +24,7 @@ const CoursesPage = () => {
       } catch (error) {
         console.log(error);
       }
+      setIsLoading(false);
     };
     loadCourses();
   }, []);
@@ -32,8 +36,19 @@ const CoursesPage = () => {
   return (
     <>
       <h1>CoursesPage</h1>
-      <CoursesList courses={courses} page={page} />
-      <PaginationNav page={page} pagesQuantity={pagesQuantity} setPage={setPage}></PaginationNav>
+    
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <CoursesList courses={courses} page={page} />
+          <PaginationNav
+            page={page}
+            pagesQuantity={pagesQuantity}
+            setPage={setPage}
+          />
+        </>
+      )}
     </>
   );
 };

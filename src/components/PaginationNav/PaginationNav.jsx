@@ -1,3 +1,5 @@
+import { Wrapper, Button, Text } from "./PaginationNav.styled";
+
 export const PaginationNav = ({ page, pagesQuantity, setPage }) => {
 
     const scrollToTop = () => {
@@ -18,18 +20,18 @@ export const PaginationNav = ({ page, pagesQuantity, setPage }) => {
       };
 
   return (
-    <>
+    <Wrapper>
       {page > 1 && (
-        <button type="button" onClick={onClickPreviousPage}>
+        <Button type="button" onClick={onClickPreviousPage}>
           Previous
-        </button>
+        </Button>
       )}
-      <span>Page {page}</span>
+      <Text>Page {page}</Text>
       {page < pagesQuantity && (
-        <button type="button" onClick={onClickNextPage}>
+        <Button type="button" onClick={onClickNextPage}>
           Next
-        </button>
+        </Button>
       )}
-    </>
+    </Wrapper>
   );
 };

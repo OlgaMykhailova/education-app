@@ -25,9 +25,10 @@ export const fetchCourses = async () => {
   }
 };
 
-export const findCourseById = async id => {
+export const findCourseById = async courseId => {
   try {
-    const response = await axios.get(`core/preview-courses/${id}`);
+    await getToken();
+    const response = await axios.get(`core/preview-courses/${courseId}`);
     return response.data;
   } catch (error) {
     console.log(error);

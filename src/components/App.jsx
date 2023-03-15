@@ -10,7 +10,7 @@ export const App = () => {
   <>
   <Routes>
     <Route path='/' element={<CoursesPage />} />
-    <Route path='course-details' element={<CoursePreviewPage />}/>
+    <Route path='course-details/:id' element={<CoursePreviewPage />}/>
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
   </>
