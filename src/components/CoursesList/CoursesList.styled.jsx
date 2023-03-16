@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const List = styled.ul`
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-gap: 30px;
-list-style: none;
-`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  list-style: none;
+`;

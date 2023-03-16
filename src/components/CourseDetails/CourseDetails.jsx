@@ -1,62 +1,44 @@
-import { useParams, useLocation, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { findCourseById } from 'services/api';
-import { Spinner } from 'components/Spinner/Spinner.styled';
+import { useState } from 'react';
+import { LessonItem } from 'components/LessonItem/LessonItem';
+import { ActiveLesson } from 'components/ActiveLesson/ActiveLesson';
+import { Button, TitleWrapper, Title, TitleAccent, DescriptionTitle, Description, Link, List } from './CourseDetails.styled';
 
-export const CourseDetails = () => {
-  const { id } = useParams();
-  const location = useLocation();
-  const goBackHref = location.state?.from ?? '/';
-  const [courseDetails, setCourseDetails] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-
-  console.log(id);
-
-  useEffect(() => {
-    const loadCourseDetails = async id => {
-      setIsLoading(true);
-      try {
-        console.log('useeffect');
-        const responseData = await findCourseById(id);
-        if (!responseData) {
-          console.log(
-            'Sorry, something went wrong. We can not find this course.'
-          );
-          return;
-        }
-        setCourseDetails(responseData);
-        console.log(responseData);
-      } catch (error) {
-        console.log(error);
-      }
-      setIsLoading(false);
-    };
-    loadCourseDetails(id);
-  }, [id]);
-
-  console.log(courseDetails);
-
+export const CourseDetails = ({ state, courseDetails }) => {
+  const goBackHref = state?.from ?? '/';
   const { title, description, lessons } = courseDetails;
+  const sortedLessons = lessons.sort((a, b) => {
+    return a.order - b.order;
+  });
+  const initialValues = {
+    order: sortedLessons[0].order || '',
+    title: sortedLessons[0].title || '',
+    link: sortedLessons[0].link || '',
+    previewImageLink: sortedLessons[0].previewImageLink || '',
+  };
+  const [activeLesson, setActiveLesson] = useState(initialValues);
 
   return (
     <>
       <Link to={goBackHref}>
-        <button type="button">Go Back</button>
+        <Button type="button">Go Back</Button>
       </Link>
-
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <div>
-          <h2>{title}</h2>
-          <p>{description}</p>
-          {lessons.map(({ title, order }) => (
-            <p>
-              Lesson {order}: {title}
-            </p>
+      <div>
+        <TitleWrapper>
+          <Title><TitleAccent>{title}</TitleAccent></Title>
+          <DescriptionTitle>About this course:</DescriptionTitle>
+          <Description>{description}</Description>
+          <ActiveLesson activeLesson={activeLesson} />
+        </TitleWrapper>
+        <List>
+          {sortedLessons.map(lesson => (
+            <LessonItem
+              key={lesson.id}
+              lesson={lesson}
+              setActiveLesson={setActiveLesson}
+            />
           ))}
-        </div>
-      )}
+        </List>
+      </div>
     </>
   );
 };

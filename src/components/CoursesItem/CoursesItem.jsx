@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
 
-import { Wrapper, Link, Image, Title, CardFooter, Text } from './CoursesItem.styled';
+import {
+  Wrapper,
+  Link,
+  Image,
+  Title,
+  CardFooter,
+  Text,
+  TextSkills,
+  TextContainer,
+  Description,
+} from './CoursesItem.styled';
 
 export const CoursesItem = ({ course, state }) => {
+  const ref = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const {
     id,
@@ -14,6 +27,18 @@ export const CoursesItem = ({ course, state }) => {
     meta,
   } = course;
 
+  useEffect(() => {
+    if (ref.current) {
+      const player = videojs(ref.current);
+      player.src({
+        src: meta.courseVideoPreview?.link,
+        type: 'application/x-mpegURL',
+      });
+      player.width(640);
+      player.height('auto');
+    }
+  }, [isHovered, meta.courseVideoPreview?.link]);
+
   return (
     <Wrapper
       onMouseEnter={() => setIsHovered(true)}
@@ -22,12 +47,20 @@ export const CoursesItem = ({ course, state }) => {
       <Link to={`course-details/${id}`} state={state}>
         <Title>{title}</Title>
         {isHovered ? (
-          <video width="640" height="360" autoPlay muted controls>
-            <source
-              src={meta.courseVideoPreview?.link}
-              type="application/x-mpegURL"
-            />
-          </video>
+          <div>
+            <video
+              id="my_video"
+              className="video-js"
+              controls
+              muted
+              autoPlay
+              preload="auto"
+              data-setup="{}"
+              ref={ref}
+            >
+        
+            </video>
+          </div>
         ) : (
           <Image
             src={`${previewImageLink}/cover.webp`}
@@ -37,11 +70,17 @@ export const CoursesItem = ({ course, state }) => {
           />
         )}
         <CardFooter>
-          <Text>{description}</Text>
-          <Text>
-            {lessonsCount} lessons | rating: {rating}
-          </Text>
-          {meta.skills && <Text>Skills: {meta.skills.join(', ')}</Text>}
+          <Description>{description}</Description>
+          <TextContainer>
+            <Text>
+              {lessonsCount} lessons | rating: {rating}
+            </Text>
+            {meta.skills && (
+              <Text>
+                Skills: <TextSkills>{meta.skills.join(', ')}</TextSkills>
+              </Text>
+            )}
+          </TextContainer>
         </CardFooter>
       </Link>
     </Wrapper>

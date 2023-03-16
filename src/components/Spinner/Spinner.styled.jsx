@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 import { ReactComponent as SpinnerIcon } from '../../media/spinner.svg';
 
+export const SpinnerContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 90vh;
+`
+
 export const Spinner = styled(SpinnerIcon)`
-  fill: #ff6101;
+  fill: rgb(0, 166, 152);;
   animation: rotate 2s linear infinite;
 
   width: 120px;

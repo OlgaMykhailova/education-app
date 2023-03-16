@@ -2,10 +2,11 @@ import { CoursesList } from 'components/CoursesList/CoursesList';
 import { PaginationNav } from 'components/PaginationNav/PaginationNav';
 import { useState, useEffect } from 'react';
 import { fetchCourses } from 'services/api';
-import { Spinner } from 'components/Spinner/Spinner.styled';
+import { Spinner, SpinnerContainer } from 'components/Spinner/Spinner.styled';
+import { Container } from 'components/Container/Container.styled';
 
 const CoursesPage = () => {
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState(null);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -29,16 +30,14 @@ const CoursesPage = () => {
     loadCourses();
   }, []);
 
-  console.log(courses);
-
-  const pagesQuantity = Math.ceil(courses.length / 10);
+  const pagesQuantity = Math.ceil(courses?.length / 10);
 
   return (
-    <>
-      <h1>CoursesPage</h1>
-    
-      {isLoading ? (
-        <Spinner />
+    <Container>
+      {isLoading || courses === null ? (
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
       ) : (
         <>
           <CoursesList courses={courses} page={page} />
@@ -49,7 +48,7 @@ const CoursesPage = () => {
           />
         </>
       )}
-    </>
+    </Container>
   );
 };
 
