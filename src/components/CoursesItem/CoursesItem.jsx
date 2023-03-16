@@ -35,7 +35,7 @@ export const CoursesItem = ({ course, state }) => {
         type: 'application/x-mpegURL',
       });
       player.width(640);
-      player.height('auto');
+      player.height(360);
     }
   }, [isHovered, meta.courseVideoPreview?.link]);
 

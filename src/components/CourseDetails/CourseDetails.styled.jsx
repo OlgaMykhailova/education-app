@@ -10,12 +10,13 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 120px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   border-radius: 12px;
   border: none;
   color: white;
-  background-color: rgb(0, 166, 152);
+  background-color: rgb(85 187 218);
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.03em;
@@ -44,6 +45,7 @@ padding: 12px 20px 16px;
 border-radius: 12px;
 color: rgb(255, 255, 255);
 background-color: rgb(234 85 43);
+box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 `
 
 export const DescriptionTitle =styled.p`

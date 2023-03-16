@@ -1,6 +1,7 @@
 import { CoursesList } from 'components/CoursesList/CoursesList';
 import { PaginationNav } from 'components/PaginationNav/PaginationNav';
 import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { fetchCourses } from 'services/api';
 import { Spinner, SpinnerContainer } from 'components/Spinner/Spinner.styled';
 import { Container } from 'components/Container/Container.styled';
@@ -15,15 +16,16 @@ const CoursesPage = () => {
       setIsLoading(true);
       try {
         const responseData = await fetchCourses();
-        if (responseData.length === 0) {
-          console.log(
+        if (!responseData) {
+          setIsLoading(false);
+          toast.error(
             'Sorry, there are no available courses now. Please try again later.'
           );
-          return;
+         return;
         }
         setCourses(responseData.reverse());
       } catch (error) {
-        console.log(error);
+        toast.error(`Something wrong - ${error}`);
       }
       setIsLoading(false);
     };
@@ -34,10 +36,14 @@ const CoursesPage = () => {
 
   return (
     <Container>
-      {isLoading || courses === null ? (
+      {isLoading ? (
         <SpinnerContainer>
           <Spinner />
         </SpinnerContainer>
+      ) : courses === null ? (
+        <div>
+          <p>There are no available courses now</p>
+        </div>
       ) : (
         <>
           <CoursesList courses={courses} page={page} />

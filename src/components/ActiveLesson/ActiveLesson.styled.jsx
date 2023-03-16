@@ -29,6 +29,7 @@ margin-right: 5px;
 border-radius: 12px;
 color: rgb(255, 255, 255);
 background-color: rgb(85 187 218);
+box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 `
 
 export const TitleText = styled.p`

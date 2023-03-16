@@ -18,6 +18,7 @@ export const Button = styled.button`
   border: none;
   color: white;
   background-color: rgb(0, 166, 152);
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.03em;
