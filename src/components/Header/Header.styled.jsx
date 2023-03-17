@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.div`
+  position: fixed;
   display: flex;
-
+  z-index: 10;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -19,7 +20,6 @@ export const HeaderWrap = styled.div`
   width: 1412px;
   padding: 0 16px;
   height: 100%;
-  
 `;
 
 export const Logo = styled.p`

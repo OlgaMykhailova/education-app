@@ -1,21 +1,29 @@
 import { useState } from 'react';
 import { LessonItem } from 'components/LessonItem/LessonItem';
 import { ActiveLesson } from 'components/ActiveLesson/ActiveLesson';
-import { Button, TitleWrapper, Title, TitleAccent, DescriptionTitle, Description, Link, List } from './CourseDetails.styled';
+import {
+  Button,
+  TitleWrapper,
+  Title,
+  DescriptionTitle,
+  Description,
+  Link,
+  List,
+} from './CourseDetails.styled';
 
 export const CourseDetails = ({ state, courseDetails }) => {
   const goBackHref = state?.from ?? '/';
   const { title, description, lessons } = courseDetails;
+
   const sortedLessons = lessons.sort((a, b) => {
     return a.order - b.order;
   });
-  const initialValues = {
-    order: sortedLessons[0].order || '',
-    title: sortedLessons[0].title || '',
-    link: sortedLessons[0].link || '',
-    previewImageLink: sortedLessons[0].previewImageLink || '',
-  };
-  const [activeLesson, setActiveLesson] = useState(initialValues);
+
+  const currentLesson = localStorage.getItem(`${title}-current-lesson`)
+    ? JSON.parse(localStorage.getItem(`${title}-current-lesson`))
+    : sortedLessons[0];
+
+  const [activeLesson, setActiveLesson] = useState(currentLesson);
 
   return (
     <>
@@ -24,10 +32,10 @@ export const CourseDetails = ({ state, courseDetails }) => {
       </Link>
       <div>
         <TitleWrapper>
-          <Title><TitleAccent>{title}</TitleAccent></Title>
+          <Title>{title}</Title>
           <DescriptionTitle>About this course:</DescriptionTitle>
           <Description>{description}</Description>
-          <ActiveLesson activeLesson={activeLesson} />
+          <ActiveLesson activeLesson={activeLesson} courseTitle={title} />
         </TitleWrapper>
         <List>
           {sortedLessons.map(lesson => (

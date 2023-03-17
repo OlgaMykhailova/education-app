@@ -24,38 +24,45 @@ export const Img = styled.img`
 export const LessonInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-between;
   height: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 15px;
 `;
 
-export const TypeText = styled.span`
-  margin-bottom: 45px;
-`;
-
-export const TypeTextAccent = styled.span`
-  padding: 4px 6px 7px;
+export const TypeText = styled.p`
+  display: inline-block;
+  margin-right: auto;
+  padding: 4px 9px 7px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
   background-color: rgb(234 85 43);
 `;
 
+export const LessonTextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const LessonText = styled.p`
-  margin-bottom: 45px;
+  display: inline-block;
   color: rgb(0, 166, 152);
 `;
 
-export const LessonTextAccent = styled.span`
-  padding: 4px 6px 7px;
-  margin-right: 5px;
+export const LessonTextAccent = styled.p`
+  display: inline-block;
+  padding: 4px 9px 7px;
+  margin-right: 10px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
   background-color: rgb(85 187 218);
 `;
 
-export const DurationText = styled.span`
-  padding: 4px 6px 7px;
+export const DurationText = styled.p`
+  display: inline-block;
+  margin-right: auto;
+  padding: 4px 9px 7px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
   background-color: rgb(0, 166, 152);

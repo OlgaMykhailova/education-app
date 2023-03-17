@@ -38,7 +38,7 @@ export const Image = styled.img`
 export const CardFooter = styled.div`
   display: flex;
   flex-direction: column;
-  
+
   margin-top: 15px;
   color: rgb(0, 0, 0);
   letter-spacing: 0.03em;
@@ -50,7 +50,7 @@ export const Text = styled.p`
 `;
 
 export const TextSkills = styled.span`
-font-weight: 400;
+  font-weight: 400;
 `;
 
 export const Description = styled.p`
@@ -64,10 +64,10 @@ export const Description = styled.p`
 `;
 
 export const TextContainer = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
   margin-top: 10px;
   color: rgb(0, 166, 152);
   font-weight: 500;

@@ -37,10 +37,7 @@ padding-top: 60px;
 `
 
 export const Title = styled.h2`
-
-`
-
-export const TitleAccent = styled.span`
+display: inline-block;
 padding: 12px 20px 16px;
 border-radius: 12px;
 color: rgb(255, 255, 255);

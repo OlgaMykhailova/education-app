@@ -3,14 +3,14 @@ import {
   Item,
   LessonInfoWrapper,
   TypeText,
-  TypeTextAccent,
+  LessonTextWrapper,
   LessonText,
   LessonTextAccent,
   DurationText,
 } from './LessonItem.styled';
 
 export const LessonItem = ({ lesson, setActiveLesson }) => {
-  const { title, order, link, previewImageLink, type, duration } = lesson;
+  const { title, order, link, previewImageLink, type, duration, status } = lesson;
 
   const minutes = Math.floor(duration / 60);
 
@@ -22,7 +22,7 @@ export const LessonItem = ({ lesson, setActiveLesson }) => {
   };
 
   const openLesson = () => {
-    setActiveLesson({ title, order, link, previewImageLink, type });
+    setActiveLesson({ title, order, link, previewImageLink, type, status });
     scrollToTop();
   };
 
@@ -39,15 +39,12 @@ export const LessonItem = ({ lesson, setActiveLesson }) => {
         }
       />
       <LessonInfoWrapper>
-        <TypeText>
-          <TypeTextAccent>{type}</TypeTextAccent>
-        </TypeText>
-        <LessonText>
-          <LessonTextAccent>Lesson: {order}</LessonTextAccent> {title}
-        </LessonText>
-        <p>
-          <DurationText>{minutes}min</DurationText>
-        </p>
+        <TypeText>{type}</TypeText>
+        <LessonTextWrapper>
+          <LessonTextAccent>Lesson: {order}</LessonTextAccent>
+          <LessonText>{title}</LessonText>
+        </LessonTextWrapper>
+        <DurationText>{minutes}min</DurationText>
       </LessonInfoWrapper>
     </Item>
   );

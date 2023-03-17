@@ -56,10 +56,10 @@ export const CoursesItem = ({ course, state }) => {
               autoPlay
               preload="auto"
               data-setup="{}"
+              width="640"
+              height="360"
               ref={ref}
-            >
-        
-            </video>
+            ></video>
           </div>
         ) : (
           <Image

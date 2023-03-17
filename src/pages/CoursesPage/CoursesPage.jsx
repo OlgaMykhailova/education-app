@@ -21,7 +21,7 @@ const CoursesPage = () => {
           toast.error(
             'Sorry, there are no available courses now. Please try again later.'
           );
-         return;
+          return;
         }
         setCourses(responseData.reverse());
       } catch (error) {
