@@ -13,14 +13,14 @@ import {
 
 export const CourseDetails = ({ state, courseDetails }) => {
   const goBackHref = state?.from ?? '/';
-  const { title, description, lessons } = courseDetails;
+  const { id, title, description, lessons } = courseDetails;
 
   const sortedLessons = lessons.sort((a, b) => {
     return a.order - b.order;
   });
 
-  const currentLesson = localStorage.getItem(`${title}-current-lesson`)
-    ? JSON.parse(localStorage.getItem(`${title}-current-lesson`))
+  const currentLesson = localStorage.getItem(`${id}-current-lesson`)
+    ? JSON.parse(localStorage.getItem(`${id}-current-lesson`))
     : sortedLessons[0];
 
   const [activeLesson, setActiveLesson] = useState(currentLesson);
@@ -35,7 +35,7 @@ export const CourseDetails = ({ state, courseDetails }) => {
           <Title>{title}</Title>
           <DescriptionTitle>About this course:</DescriptionTitle>
           <Description>{description}</Description>
-          <ActiveLesson activeLesson={activeLesson} courseTitle={title} />
+          <ActiveLesson activeLesson={activeLesson} courseId={id} />
         </TitleWrapper>
         <List>
           {sortedLessons.map(lesson => (

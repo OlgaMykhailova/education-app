@@ -38,7 +38,7 @@ padding-top: 60px;
 display: flex;
 flex-direction: column;
 align-items: center;
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   display: block;
 }
 `
@@ -60,7 +60,12 @@ color: rgb(0, 166, 152);
 `
 
 export const Description = styled.p`
+text-align: center;
 margin-bottom: 32px;
 font-size: 16px;
 color: rgb(0, 166, 152);
+@media screen and (min-width: 768px) {
+  text-align: left;
+  font-size: 18px;
+}
 `

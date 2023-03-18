@@ -43,6 +43,7 @@ export const LessonInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
   height: 100%;
   padding: 10px;
   font-size: 10px;
@@ -63,7 +64,6 @@ export const TypeText = styled.p`
 export const LessonTextWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
 `;
 
 export const LessonText = styled.p`

@@ -34,6 +34,7 @@ export const Title = styled.h2`
   width: 100%;
   min-height: 86px;
   margin-bottom: 20px;
+  padding: 5px;
   text-align: center;
   color: rgb(0, 166, 152);
   font-weight: 700;

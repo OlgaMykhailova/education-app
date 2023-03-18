@@ -10,7 +10,7 @@ import {
 } from './LessonItem.styled';
 
 export const LessonItem = ({ lesson, setActiveLesson }) => {
-  const { title, order, link, previewImageLink, type, duration, status } = lesson;
+  const { title, order, previewImageLink, type, duration } = lesson;
 
   const minutes = Math.floor(duration / 60);
 
@@ -22,7 +22,7 @@ export const LessonItem = ({ lesson, setActiveLesson }) => {
   };
 
   const openLesson = () => {
-    setActiveLesson({ title, order, link, previewImageLink, type, status });
+    setActiveLesson(lesson);
     scrollToTop();
   };
 

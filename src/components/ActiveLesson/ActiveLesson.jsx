@@ -11,14 +11,13 @@ import {
   LockedVideoStyled,
   Video,
   PromptText,
+  LessonWrapper,
 } from './ActiveLesson.styled';
 
-export const ActiveLesson = ({ activeLesson, courseTitle }) => {
+export const ActiveLesson = ({ activeLesson, courseId }) => {
   const ref = useRef(null);
 
-  const { previewImageLink, order, link, title, status } = activeLesson;
-
-  console.log(activeLesson);
+  const { id, previewImageLink, order, link, title, status } = activeLesson;
 
   useEffect(() => {
     if (ref.current) {
@@ -27,7 +26,7 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
 
       const updateTime = () => {
         localStorage.setItem(
-          `${courseTitle}-lesson${order}-videoplayer-current-time`,
+          `${courseId}-lesson${id}-videoplayer-current-time`,
           JSON.stringify(player.currentTime())
         );
       };
@@ -35,12 +34,12 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
       const updateStorage = () => {
         if (
           localStorage.getItem(
-            `${courseTitle}-lesson${order}-videoplayer-current-time`
+            `${courseId}-lesson${id}-videoplayer-current-time`
           )
         ) {
           player.currentTime(
             localStorage.getItem(
-              `${courseTitle}-lesson${order}-videoplayer-current-time`
+              `${courseId}-lesson${id}-videoplayer-current-time`
             )
           );
         }
@@ -72,26 +71,28 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
         player.off('keydown', changePlayBackRate);
       };
     }
-  }, [previewImageLink, order, link, courseTitle]);
+  }, [previewImageLink, link, courseId, id]);
 
   useEffect(() => {
     localStorage.setItem(
-      `${courseTitle}-current-lesson`,
+      `${courseId}-current-lesson`,
       JSON.stringify(activeLesson)
     );
-  }, [courseTitle, activeLesson]);
+  }, [courseId, activeLesson]);
 
   console.log(status);
 
   return (
     <Wrapper>
       {status === 'locked' ? (
-        <LockedWrapper>
-          <LockedText>
-            This video is locked. Please try our subscription
-          </LockedText>
-          <LockedVideoStyled />
-        </LockedWrapper>
+        <div>
+          <LockedWrapper>
+            <LockedText>
+              This video is locked. Please try our subscription
+            </LockedText>
+            <LockedVideoStyled />
+          </LockedWrapper>
+        </div>
       ) : (
         <div>
           <VideoWrapper>
@@ -107,10 +108,10 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
           <PromptText>{`You can change playback rate by keyboard using ">" to 2x or "<" to 1x speed`}</PromptText>
         </div>
       )}
-      <div>
+      <LessonWrapper>
         <LessonText>Lesson: {order}</LessonText>
         <TitleText> {title}</TitleText>
-      </div>
+      </LessonWrapper>
     </Wrapper>
   );
 };
