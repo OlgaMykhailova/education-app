@@ -9,6 +9,8 @@ import {
   LockedWrapper,
   LockedText,
   LockedVideoStyled,
+  Video,
+  PromptText,
 } from './ActiveLesson.styled';
 
 export const ActiveLesson = ({ activeLesson, courseTitle }) => {
@@ -21,10 +23,7 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
   useEffect(() => {
     if (ref.current) {
       const player = videojs(ref.current);
-      player.poster(`${previewImageLink}/lesson-${order}.webp`);
       player.src({ src: link, type: 'application/x-mpegURL' });
-      player.width(720);
-      player.height('auto');
 
       const updateTime = () => {
         localStorage.setItem(
@@ -60,6 +59,13 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
       };
 
       player.on('keydown', changePlayBackRate);
+
+      player.on('waiting', function () {
+        this.addClass('vjs-custom-waiting');
+      });
+      player.on('playing', function () {
+        this.removeClass('vjs-custom-waiting');
+      });
       return () => {
         player.off('loadedmetadata', updateStorage);
         player.off('timeupdate', updateTime);
@@ -87,16 +93,19 @@ export const ActiveLesson = ({ activeLesson, courseTitle }) => {
           <LockedVideoStyled />
         </LockedWrapper>
       ) : (
-        <VideoWrapper>
-          <video
-            id="my_video"
-            className="video-js"
-            controls
-            preload="auto"
-            data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }'
-            ref={ref}
-          ></video>
-        </VideoWrapper>
+        <div>
+          <VideoWrapper>
+            <Video
+              id="my_video"
+              className="video-js"
+              controls
+              preload="auto"
+              data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }'
+              ref={ref}
+            ></Video>
+          </VideoWrapper>
+          <PromptText>{`You can change playback rate by keyboard using ">" to 2x or "<" to 1x speed`}</PromptText>
+        </div>
       )}
       <div>
         <LessonText>Lesson: {order}</LessonText>

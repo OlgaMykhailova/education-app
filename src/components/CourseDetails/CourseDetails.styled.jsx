@@ -25,15 +25,22 @@ export const Button = styled.button`
 export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 60px;
-  padding-top: 60px;
+  gap: 20px;
+  padding-bottom: 60px;
   list-style: none;
+  @media screen and (min-width: 1280px) {
+    gap: 40px;
+  }
 `;
 
 export const TitleWrapper = styled.div`
 padding-top: 60px;
-
+display: flex;
+flex-direction: column;
+align-items: center;
+@media screen and (min-width: 768px) {
+  display: block;
+}
 `
 
 export const Title = styled.h2`

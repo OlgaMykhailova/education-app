@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://api.wisey.app/api/v1/';
 
@@ -11,6 +12,9 @@ const getToken = async () => {
     const response = await axios.get('auth/anonymous?platform=subscriptions');
     setToken(response.data.token);
   } catch (error) {
+    toast.error(
+      `${error.message}`
+    );
     return error;
   }
 };
@@ -31,6 +35,6 @@ export const findCourseById = async courseId => {
     const response = await axios.get(`core/preview-courses/${courseId}`);
     return response.data;
   } catch (error) {
-    return error;;
+    return error;
   }
 };

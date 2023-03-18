@@ -2,23 +2,41 @@ import styled from 'styled-components';
 
 export const Item = styled.li`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  width: 670px;
-  height: 200px;
-  padding: 15px;
+  width: 310px;
+  height: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
   cursor: pointer;
   border-radius: 12px;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   background-color: rgb(246, 246, 247);
-  &:not(:last-of-type) {
-    margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    width: 604px;
+    height: 200px;
+    padding: 15px;
+  }
+  @media screen and (min-width: 1412px) {
+    margin-left: 0;
+    margin-right: 0;
   }
 `;
 
 export const Img = styled.img`
-  margin-right: 20px;
-  object-fit: cover;
+  width: 302px;
+  height: 171px;
+  object-fit: contain;
   border-radius: 12px;
+  @media screen and (min-width: 768px) {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
 `;
 
 export const LessonInfoWrapper = styled.div`
@@ -27,7 +45,10 @@ export const LessonInfoWrapper = styled.div`
   justify-content: space-between;
   height: 100%;
   padding: 10px;
-  font-size: 15px;
+  font-size: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 15px;
+  }
 `;
 
 export const TypeText = styled.p`

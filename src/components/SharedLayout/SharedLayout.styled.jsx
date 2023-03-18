@@ -11,6 +11,7 @@ export const StyledContainer = styled(ToastContainer)`
     border: 2px solid #55ae3a;
   }
   .Toastify__toast--error {
+    min-height: 150px;
     border-radius: 40px;
   }
   .Toastify__close-button {

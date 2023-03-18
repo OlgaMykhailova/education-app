@@ -12,6 +12,7 @@ import {
   TextSkills,
   TextContainer,
   Description,
+  Video,
 } from './CoursesItem.styled';
 
 export const CoursesItem = ({ course, state }) => {
@@ -34,8 +35,8 @@ export const CoursesItem = ({ course, state }) => {
         src: meta.courseVideoPreview?.link,
         type: 'application/x-mpegURL',
       });
-      player.width(640);
-      player.height(360);
+      player.width(574);
+      player.height(324);
     }
   }, [isHovered, meta.courseVideoPreview?.link]);
 
@@ -48,7 +49,7 @@ export const CoursesItem = ({ course, state }) => {
         <Title>{title}</Title>
         {isHovered ? (
           <div>
-            <video
+            <Video
               id="my_video"
               className="video-js"
               controls
@@ -56,17 +57,14 @@ export const CoursesItem = ({ course, state }) => {
               autoPlay
               preload="auto"
               data-setup="{}"
-              width="640"
-              height="360"
               ref={ref}
-            ></video>
+            ></Video>
           </div>
         ) : (
           <Image
             src={`${previewImageLink}/cover.webp`}
             alt={title}
-            width="640"
-            height="360"
+
           />
         )}
         <CardFooter>

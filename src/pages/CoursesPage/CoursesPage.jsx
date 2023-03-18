@@ -16,8 +16,8 @@ const CoursesPage = () => {
       setIsLoading(true);
       try {
         const responseData = await fetchCourses();
-        if (!responseData) {
-          setIsLoading(false);
+        if (responseData.length === 0) {
+          
           toast.error(
             'Sorry, there are no available courses now. Please try again later.'
           );
@@ -26,6 +26,7 @@ const CoursesPage = () => {
         setCourses(responseData.reverse());
       } catch (error) {
         toast.error(`Something wrong - ${error}`);
+        return error;
       }
       setIsLoading(false);
     };

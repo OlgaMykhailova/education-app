@@ -14,12 +14,18 @@ export const HeaderStyled = styled.div`
 
 export const HeaderWrap = styled.div`
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-  width: 1412px;
+  width: 640px;
   padding: 0 16px;
   height: 100%;
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
 `;
 
 export const Logo = styled.p`
@@ -27,9 +33,16 @@ export const Logo = styled.p`
   font-size: 28px;
 `;
 
-export const Slogan = styled.p`
-  margin-left: auto;
-  font-weight: 700;
-  font-size: 28px;
-  color: white;
+export const Slogan = styled.h1`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+  }
 `;

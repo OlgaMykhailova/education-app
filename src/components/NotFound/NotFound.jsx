@@ -1,3 +1,13 @@
+import { Container } from 'components/Container/Container.styled';
+import NotFoundImage from '../../media/not-found.jpg';
+import { Wrapper } from './NotFound.styled';
+
 export const NotFound = () => {
-  return <div>Not Found</div>;
+  return (
+    <Container>
+      <Wrapper>
+        <img src={NotFoundImage} alt="Not found" />
+      </Wrapper>
+    </Container>
+  );
 };
