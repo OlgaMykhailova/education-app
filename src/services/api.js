@@ -12,9 +12,7 @@ const getToken = async () => {
     const response = await axios.get('auth/anonymous?platform=subscriptions');
     setToken(response.data.token);
   } catch (error) {
-    toast.error(
-      `${error.message}`
-    );
+    toast.error(`Something went wrong-${error.message}`);
     return error;
   }
 };
@@ -22,10 +20,10 @@ const getToken = async () => {
 export const fetchCourses = async () => {
   try {
     await getToken();
-    const response = await axios.get('core/preview-courses');
+    const response = await axios.get('core/preview-course');
     return response.data.courses;
   } catch (error) {
-    return error;
+    toast.error(`Something went wrong-${error.message}`);
   }
 };
 
@@ -35,6 +33,6 @@ export const findCourseById = async courseId => {
     const response = await axios.get(`core/preview-courses/${courseId}`);
     return response.data;
   } catch (error) {
-    return error;
+    toast.error(`Something went wrong-${error.message}`);
   }
 };
