@@ -1,13 +1,26 @@
 {
   "files": {
-    "main.css": "/education-app/static/css/main.7acaea2f.css",
-    "main.js": "/education-app/static/js/main.07d3183d.js",
+    "main.css": "/education-app/static/css/main.95e8d592.css",
+    "main.js": "/education-app/static/js/main.2cb9c521.js",
+    "static/js/18.0637f392.chunk.js": "/education-app/static/js/18.0637f392.chunk.js",
+    "static/js/437.11583028.chunk.js": "/education-app/static/js/437.11583028.chunk.js",
+    "static/js/90.cfc017bb.chunk.js": "/education-app/static/js/90.cfc017bb.chunk.js",
+    "static/css/117.4178cafa.chunk.css": "/education-app/static/css/117.4178cafa.chunk.css",
+    "static/js/117.625c72e5.chunk.js": "/education-app/static/js/117.625c72e5.chunk.js",
+    "static/media/not-found.jpg": "/education-app/static/media/not-found.550e0af2492f6e9b58c1.jpg",
+    "static/media/locked-video.svg": "/education-app/static/media/locked-video.e104b37b140a99f4b97f4d53d841c464.svg",
+    "static/media/spinner.svg": "/education-app/static/media/spinner.df10bb71277aefd661630a4e38bdb889.svg",
     "index.html": "/education-app/index.html",
-    "main.7acaea2f.css.map": "/education-app/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/education-app/static/js/main.07d3183d.js.map"
+    "main.95e8d592.css.map": "/education-app/static/css/main.95e8d592.css.map",
+    "main.2cb9c521.js.map": "/education-app/static/js/main.2cb9c521.js.map",
+    "18.0637f392.chunk.js.map": "/education-app/static/js/18.0637f392.chunk.js.map",
+    "437.11583028.chunk.js.map": "/education-app/static/js/437.11583028.chunk.js.map",
+    "90.cfc017bb.chunk.js.map": "/education-app/static/js/90.cfc017bb.chunk.js.map",
+    "117.4178cafa.chunk.css.map": "/education-app/static/css/117.4178cafa.chunk.css.map",
+    "117.625c72e5.chunk.js.map": "/education-app/static/js/117.625c72e5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.95e8d592.css",
+    "static/js/main.2cb9c521.js"
   ]
 }
