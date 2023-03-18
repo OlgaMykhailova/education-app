@@ -34,8 +34,6 @@ const CoursePreviewPage = ({ state }) => {
     loadCourseDetails(id);
   }, [id]);
 
-  console.log(courseDetails);
-
   return (
     <Container>
       {isLoading ? (
