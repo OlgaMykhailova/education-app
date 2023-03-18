@@ -1,10 +1,10 @@
 import { CoursesList } from 'components/CoursesList/CoursesList';
 import { PaginationNav } from 'components/PaginationNav/PaginationNav';
 import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 import { fetchCourses } from 'services/api';
 import { Spinner, SpinnerContainer } from 'components/Spinner/Spinner.styled';
 import { Container } from 'components/Container/Container.styled';
+import { Error } from 'components/Error/Error';
 
 const CoursesPage = () => {
   const [courses, setCourses] = useState(null);
@@ -16,19 +16,17 @@ const CoursesPage = () => {
       setIsLoading(true);
       try {
         const responseData = await fetchCourses();
-        if (responseData.length === 0) {
-          
-          toast.error(
+        if (!responseData) {
+          throw new Error(
             'Sorry, there are no available courses now. Please try again later.'
           );
-          return;
         }
         setCourses(responseData.reverse());
+        setIsLoading(false);
       } catch (error) {
-        toast.error(`Something wrong - ${error}`);
+        setIsLoading(false);
         return error;
       }
-      setIsLoading(false);
     };
     loadCourses();
   }, []);
@@ -41,11 +39,7 @@ const CoursesPage = () => {
         <SpinnerContainer>
           <Spinner />
         </SpinnerContainer>
-      ) : courses === null ? (
-        <div>
-          <p>There are no available courses now</p>
-        </div>
-      ) : (
+      ) : courses ? (
         <>
           <CoursesList courses={courses} page={page} />
           <PaginationNav
@@ -54,6 +48,8 @@ const CoursesPage = () => {
             setPage={setPage}
           />
         </>
+      ) : (
+        <Error errorText={'There are no coureses for display'} />
       )}
     </Container>
   );

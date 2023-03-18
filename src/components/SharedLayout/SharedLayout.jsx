@@ -8,12 +8,12 @@ import { Header } from 'components/Header/Header';
 export const SharedLayout = () => {
   return (
     <WrapperSharedLayout>
-        <Header />
+      <Header />
       <Suspense>
         <Outlet />
       </Suspense>
       <StyledContainer
-        position="top-center"
+        position="bottom-center"
         transition={Zoom}
         autoClose={5000}
         hideProgressBar={true}
