@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/education-app/static/css/main.95e8d592.css",
-    "main.js": "/education-app/static/js/main.b3875629.js",
-    "static/js/18.0637f392.chunk.js": "/education-app/static/js/18.0637f392.chunk.js",
-    "static/js/437.220872c4.chunk.js": "/education-app/static/js/437.220872c4.chunk.js",
+    "main.js": "/education-app/static/js/main.334064ad.js",
+    "static/js/18.97e0645d.chunk.js": "/education-app/static/js/18.97e0645d.chunk.js",
+    "static/js/437.ad3841ef.chunk.js": "/education-app/static/js/437.ad3841ef.chunk.js",
     "static/js/90.cfc017bb.chunk.js": "/education-app/static/js/90.cfc017bb.chunk.js",
-    "static/css/117.4178cafa.chunk.css": "/education-app/static/css/117.4178cafa.chunk.css",
-    "static/js/117.625c72e5.chunk.js": "/education-app/static/js/117.625c72e5.chunk.js",
+    "static/css/755.cea70de0.chunk.css": "/education-app/static/css/755.cea70de0.chunk.css",
+    "static/js/755.fbf7c2cb.chunk.js": "/education-app/static/js/755.fbf7c2cb.chunk.js",
     "static/media/not-found.jpg": "/education-app/static/media/not-found.550e0af2492f6e9b58c1.jpg",
     "static/media/locked-video.svg": "/education-app/static/media/locked-video.e104b37b140a99f4b97f4d53d841c464.svg",
     "index.html": "/education-app/index.html",
     "static/media/spinner.svg": "/education-app/static/media/spinner.df10bb71277aefd661630a4e38bdb889.svg",
     "main.95e8d592.css.map": "/education-app/static/css/main.95e8d592.css.map",
-    "main.b3875629.js.map": "/education-app/static/js/main.b3875629.js.map",
-    "18.0637f392.chunk.js.map": "/education-app/static/js/18.0637f392.chunk.js.map",
-    "437.220872c4.chunk.js.map": "/education-app/static/js/437.220872c4.chunk.js.map",
+    "main.334064ad.js.map": "/education-app/static/js/main.334064ad.js.map",
+    "18.97e0645d.chunk.js.map": "/education-app/static/js/18.97e0645d.chunk.js.map",
+    "437.ad3841ef.chunk.js.map": "/education-app/static/js/437.ad3841ef.chunk.js.map",
     "90.cfc017bb.chunk.js.map": "/education-app/static/js/90.cfc017bb.chunk.js.map",
-    "117.4178cafa.chunk.css.map": "/education-app/static/css/117.4178cafa.chunk.css.map",
-    "117.625c72e5.chunk.js.map": "/education-app/static/js/117.625c72e5.chunk.js.map"
+    "755.cea70de0.chunk.css.map": "/education-app/static/css/755.cea70de0.chunk.css.map",
+    "755.fbf7c2cb.chunk.js.map": "/education-app/static/js/755.fbf7c2cb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95e8d592.css",
-    "static/js/main.b3875629.js"
+    "static/js/main.334064ad.js"
   ]
 }
