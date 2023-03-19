@@ -59,12 +59,6 @@ export const ActiveLesson = ({ activeLesson, courseId }) => {
 
       player.on('keydown', changePlayBackRate);
 
-      player.on('waiting', function () {
-        this.addClass('vjs-custom-waiting');
-      });
-      player.on('playing', function () {
-        this.removeClass('vjs-custom-waiting');
-      });
       return () => {
         player.off('loadedmetadata', updateStorage);
         player.off('timeupdate', updateTime);

@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
 `;
 
 export const VideoWrapper = styled.div`
+  .video-js .vjs-big-play-button {
+    top: 45%;
+    left: 45%;
+  }
   width: 310px;
   margin: 0 auto;
   border-radius: 24px;
