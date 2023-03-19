@@ -1,6 +1,7 @@
 import { CoursesList } from 'components/CoursesList/CoursesList';
 import { PaginationNav } from 'components/PaginationNav/PaginationNav';
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { fetchCourses } from 'services/api';
 import { Spinner, SpinnerContainer } from 'components/Spinner/Spinner.styled';
 import { Container } from 'components/Container/Container.styled';
@@ -10,6 +11,7 @@ const CoursesPage = () => {
   const [courses, setCourses] = useState(null);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const loadCourses = async () => {
@@ -33,6 +35,8 @@ const CoursesPage = () => {
 
   const pagesQuantity = Math.ceil(courses?.length / 10);
 
+  console.log(courses)
+
   return (
     <Container>
       {isLoading ? (
@@ -41,7 +45,7 @@ const CoursesPage = () => {
         </SpinnerContainer>
       ) : courses ? (
         <>
-          <CoursesList courses={courses} page={page} />
+          <CoursesList courses={courses} state={{ from: location }} page={page}/>
           <PaginationNav
             page={page}
             pagesQuantity={pagesQuantity}
@@ -49,7 +53,7 @@ const CoursesPage = () => {
           />
         </>
       ) : (
-        <Error errorText={'There are no coureses for display'} />
+        <Error errorText={'There are no courses for display'} />
       )}
     </Container>
   );

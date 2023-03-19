@@ -12,7 +12,7 @@ const getToken = async () => {
     const response = await axios.get('auth/anonymous?platform=subscriptions');
     setToken(response.data.token);
   } catch (error) {
-    toast.error(`Something went wrong: ${error.message}`);
+    toast.error(`Something went wrong in getting token: ${error.message}`);
     return error;
   }
 };

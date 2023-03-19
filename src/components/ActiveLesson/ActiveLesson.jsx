@@ -74,8 +74,6 @@ export const ActiveLesson = ({ activeLesson, courseId }) => {
     );
   }, [courseId, activeLesson]);
 
-  console.log(status);
-
   return (
     <Wrapper>
       {status === 'locked' ? (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { findCourseById } from 'services/api';
 import { Container } from 'components/Container/Container.styled';
 import { CourseDetails } from 'components/CourseDetails/CourseDetails';
@@ -7,11 +7,12 @@ import { Spinner, SpinnerContainer } from 'components/Spinner/Spinner.styled';
 import { Error } from 'components/Error/Error';
 import { Button, Link } from '../../components/CourseDetails/CourseDetails.styled';
 
-const CoursePreviewPage = ({ state }) => {
+const CoursePreviewPage = () => {
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const goBackHref = state?.from ?? '/';
+  const location = useLocation()
+  const goBackHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const loadCourseDetails = async id => {
@@ -41,7 +42,7 @@ const CoursePreviewPage = ({ state }) => {
           <Spinner />
         </SpinnerContainer>
       ) : courseDetails ? (
-        <CourseDetails courseDetails={courseDetails} state={state} />
+        <CourseDetails courseDetails={courseDetails} state={location.state} />
       ) : (
         <>
           <Link to={goBackHref}>

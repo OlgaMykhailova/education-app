@@ -48,7 +48,7 @@ export const CoursesItem = ({ course, state }) => {
     >
       <Link to={`course-details/${id}`} state={state}>
         <Title>{title}</Title>
-        {isHovered ? (
+        {isHovered && meta.courseVideoPreview ? (
           <VideoWrapper>
             <Video
               id="my_video"
@@ -62,11 +62,7 @@ export const CoursesItem = ({ course, state }) => {
             ></Video>
           </VideoWrapper>
         ) : (
-          <Image
-            src={`${previewImageLink}/cover.webp`}
-            alt={title}
-
-          />
+          <Image src={`${previewImageLink}/cover.webp`} alt={title} />
         )}
         <CardFooter>
           <Description>{description}</Description>
