@@ -2,6 +2,8 @@ import {
   Img,
   Item,
   LessonInfoWrapper,
+  TypeInfoWrapper,
+  LockedIcon,
   TypeText,
   LessonTextWrapper,
   LessonText,
@@ -10,7 +12,7 @@ import {
 } from './LessonItem.styled';
 
 export const LessonItem = ({ lesson, setActiveLesson }) => {
-  const { title, order, previewImageLink, type, duration } = lesson;
+  const { title, order, previewImageLink, type, duration, status } = lesson;
 
   const minutes = Math.floor(duration / 60);
 
@@ -39,7 +41,10 @@ export const LessonItem = ({ lesson, setActiveLesson }) => {
         }
       />
       <LessonInfoWrapper>
-        <TypeText>{type}</TypeText>
+        <TypeInfoWrapper>
+          <TypeText>{type} </TypeText>
+          {status === 'locked' && <LockedIcon />}
+        </TypeInfoWrapper>
         <LessonTextWrapper>
           <LessonTextAccent>Lesson: {order}</LessonTextAccent>
           <LessonText>{title}</LessonText>

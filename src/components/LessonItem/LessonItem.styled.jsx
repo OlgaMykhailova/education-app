@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Locked } from '../../media/locked.svg';
 
 export const Item = styled.li`
   display: flex;
@@ -52,13 +53,22 @@ export const LessonInfoWrapper = styled.div`
   }
 `;
 
+export const TypeInfoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const TypeText = styled.p`
   display: inline-block;
   margin-right: auto;
   padding: 4px 9px 7px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
-  background-color: rgb(234 85 43);
+  background-color: rgb(234, 85, 43);
+`;
+
+export const LockedIcon = styled(Locked)`
+  fill: rgb(234, 85, 43);
 `;
 
 export const LessonTextWrapper = styled.div`
@@ -77,7 +87,7 @@ export const LessonTextAccent = styled.p`
   margin-right: 10px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
-  background-color: rgb(85 187 218);
+  background-color: rgb(85, 187, 218);
 `;
 
 export const DurationText = styled.p`

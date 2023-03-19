@@ -29,6 +29,14 @@ Course Details Page
 
 ![Course Details Page](./assets/course-details-page-2.jpg)
 
+Locked Video
+
+![Locked Video](./assets/locked-video.jpg)
+
+Locked Lessons
+
+![Locked Lessons](./assets/locked-lessons.jpg)
+
 Not Found Page
 
 ![Not Found Page](./assets/not-found-page.jpg)
