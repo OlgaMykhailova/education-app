@@ -3,7 +3,7 @@
 ## Technical Features
 
 This App is made with React. For routing is used React Router.
-Responsive/Adaptive design (three breakponts: 320px, 768px, 1280px)
+Responsive/Adaptive design (three breakpoints: 320px, 768px, 1280px)
 
 ## Description
 
