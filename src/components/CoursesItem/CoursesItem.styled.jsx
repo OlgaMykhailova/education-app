@@ -68,6 +68,13 @@ export const Image = styled.img`
   }
 `;
 
+export const VideoWrapper = styled.div`
+  .video-js .vjs-big-play-button {
+    top: 45%;
+    left: 45%;
+  }
+`;
+
 export const Video = styled.video`
   width: 302px;
   height: 171px;

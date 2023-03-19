@@ -13,6 +13,7 @@ import {
   TextContainer,
   Description,
   Video,
+  VideoWrapper,
 } from './CoursesItem.styled';
 
 export const CoursesItem = ({ course, state }) => {
@@ -48,7 +49,7 @@ export const CoursesItem = ({ course, state }) => {
       <Link to={`course-details/${id}`} state={state}>
         <Title>{title}</Title>
         {isHovered ? (
-          <div>
+          <VideoWrapper>
             <Video
               id="my_video"
               className="video-js"
@@ -59,7 +60,7 @@ export const CoursesItem = ({ course, state }) => {
               data-setup="{}"
               ref={ref}
             ></Video>
-          </div>
+          </VideoWrapper>
         ) : (
           <Image
             src={`${previewImageLink}/cover.webp`}

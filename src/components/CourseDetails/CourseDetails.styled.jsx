@@ -64,7 +64,7 @@ text-align: center;
 margin-bottom: 32px;
 font-size: 16px;
 color: rgb(0, 166, 152);
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   text-align: left;
   font-size: 18px;
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.div`
@@ -28,9 +29,15 @@ export const HeaderWrap = styled.div`
   }
 `;
 
+export const LogoLink = styled(Link)`
+  text-decoration: none;
+ 
+`;
+
 export const Logo = styled.p`
   font-weight: 700;
   font-size: 28px;
+  color: rgb(0, 0, 0);
 `;
 
 export const Slogan = styled.h1`

@@ -4,7 +4,7 @@ import { ReactComponent as LockedVideo } from '../../media/locked-video.svg';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   margin-bottom: 40px;
   @media screen and (min-width: 1280px) {
     flex-direction: row;
@@ -14,8 +14,12 @@ export const Wrapper = styled.div`
 
 export const VideoWrapper = styled.div`
   .video-js .vjs-big-play-button {
-    top: 45%;
-    left: 45%;
+    top: 35%;
+    left: 35%;
+    @media screen and (min-width: 768px) {
+      top: 45%;
+      left: 45%;
+    }
   }
   width: 310px;
   margin: 0 auto;
@@ -129,4 +133,8 @@ export const TitleText = styled.p`
   font-weight: 500;
   font-size: 24px;
   color: rgb(0, 166, 152);
+  text-align: center;
+  @media screen and (min-width: 1280px) {
+    text-align: left;
+  }
 `;
