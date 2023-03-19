@@ -35,11 +35,11 @@ Not Found Page
 
 Error
 
-![Error](./assets/error.jpg)
+![Error](./assets/error-page.jpg)
 
-Spinner
+Loading spinner
 
-![Spinner](./assets/spinner.jpg)
+![Spinner](./assets/loading-spinner.jpg)
 
 Home Page Mobile
 
