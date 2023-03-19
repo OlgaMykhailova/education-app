@@ -7,7 +7,7 @@ Responsive/Adaptive design (three breakponts: 320px, 768px, 1280px)
 
 ## Description
 
-Wise Education App is an application for learning different courses.
+WISEY Education App is an application for learning different courses.
 
 Home page
 

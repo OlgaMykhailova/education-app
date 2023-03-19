@@ -20,7 +20,7 @@ const getToken = async () => {
 export const fetchCourses = async () => {
   try {
     await getToken();
-    const response = await axios.get('core/preview-courses');
+    const response = await axios.get('core/preview-course');
     return response.data.courses;
   } catch (error) {
     toast.error(`Something went wrong: ${error.message}`);

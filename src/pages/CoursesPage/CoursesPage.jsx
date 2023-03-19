@@ -35,8 +35,6 @@ const CoursesPage = () => {
 
   const pagesQuantity = Math.ceil(courses?.length / 10);
 
-  console.log(courses)
-
   return (
     <Container>
       {isLoading ? (
