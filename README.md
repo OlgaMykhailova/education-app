@@ -75,6 +75,10 @@ Course Details Page Tablet
 
 ## Deploy
 
+To check the project you need to install the CORS plugin in Chrome and turn it On Since the backend has certain restrictions on CORS:
+
+https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+
 [Link](https://olgamykhailova.github.io/education-app)
 
 ## Project setup

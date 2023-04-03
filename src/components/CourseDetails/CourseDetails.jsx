@@ -11,7 +11,6 @@ import {
   List,
 } from './CourseDetails.styled';
 
-
 export const CourseDetails = ({ state, courseDetails }) => {
   const goBackHref = state?.from ?? '/';
   const { id, title, description, lessons } = courseDetails;
@@ -26,10 +25,9 @@ export const CourseDetails = ({ state, courseDetails }) => {
 
   const [activeLesson, setActiveLesson] = useState(currentLesson);
 
-
   return (
     <>
-      <Link to={goBackHref} >
+      <Link to={goBackHref}>
         <Button type="button">Go Back</Button>
       </Link>
       <div>
